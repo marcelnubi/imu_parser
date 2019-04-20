@@ -21,7 +21,7 @@ fn main() -> io::Result<()> {
         let dpitch = LittleEndian::read_f32(&float_buf[16 .. 20])/100.0;
         let dyaw = LittleEndian::read_f32(&float_buf[20 .. 24])/100.0;
     
-        println!("Ax={:.2} Ay={:.2} Az={:.2} dRow={:.2} dPitch={:.2} dYaw={:.2}",ax,ay,az,drow,dpitch,dyaw);
+        println!("Ax={:.5} Ay={:.5} Az={:.5} dRow={:.5} dPitch={:.5} dYaw={:.5}",ax,ay,az,drow,dpitch,dyaw);
         if done == true{
             break;
         }
