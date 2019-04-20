@@ -9,7 +9,7 @@ fn main() -> io::Result<()> {
     let mut float_buf = [0;24]; 
     let mut buf_reader = BufReader::new(f);
     let mut done = false;
-    loop{
+    while done == false {
         match buf_reader.read_exact(&mut float_buf) {
             Ok(o) => o,
             Err(_e) => done = true,
@@ -22,9 +22,6 @@ fn main() -> io::Result<()> {
         let dyaw = LittleEndian::read_f32(&float_buf[20 .. 24])/100.0;
     
         println!("Ax={:.5} Ay={:.5} Az={:.5} dRow={:.5} dPitch={:.5} dYaw={:.5}",ax,ay,az,drow,dpitch,dyaw);
-        if done == true{
-            break;
-        }
     }
     Ok(())
 }
