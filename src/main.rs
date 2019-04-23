@@ -7,7 +7,7 @@ use std::io::Read;
 use std::io::Write;
 
 fn main() -> io::Result<()> {
-    let f = File::open("daq.log")?;
+    let f = File::open("daq_imu_0_pkpk35_0.2hz.log")?;
     let mut buf_reader = BufReader::new(f);
 
     let wf = File::create("out.csv")?;
