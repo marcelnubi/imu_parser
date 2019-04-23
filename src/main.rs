@@ -16,7 +16,7 @@ fn main() -> io::Result<()> {
     let mut float_buf = [0; 36];
     let mut done = false;
 
-    writeln!(&mut buf_writer, "ax;ay;az;d_row;d_pitch;d_yaw")?;
+    writeln!(&mut buf_writer, "ax;ay;az;d_row;d_pitch;d_yaw;mX;mY;mZ")?;
 
     while done == false {
         match buf_reader.read_exact(&mut float_buf) {
