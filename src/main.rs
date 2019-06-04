@@ -7,10 +7,11 @@ use std::io::Read;
 use std::io::Write;
 
 fn main() -> io::Result<()> {
-    let f = File::open("daq_imu_pkpk60_0_0_0.2hz.log")?;
+    let file_name = "daq_imu_pkpk60_0_0_0.2hz.log";
+    let f = File::open(file_name)?;
     let mut buf_reader = BufReader::new(f);
 
-    let wf = File::create("out.csv")?;
+    let wf = File::create(format!("{}.csv",file_name))?;
     let mut buf_writer = BufWriter::new(wf);
 
     let mut float_buf = [0; 36];
